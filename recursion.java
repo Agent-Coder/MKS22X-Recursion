@@ -1,3 +1,5 @@
+import java.lang.Math;
+import java.util.ArrayList;
 public class recursion{
     /*You may write additional private methods */
 
@@ -32,11 +34,29 @@ public class recursion{
       return fibonacci(n-1,holder,previous+holder);
     }
     /*As Per classwork*/
-    //public static ArrayList<Integer> makeAllSums(){
-    //}
-    public static void main(String[] args){
-      System.out.println(fib(50));
-      System.out.println(fib(60));
+    public static ArrayList<Integer> makeAllSums(int n){
+
+    }
+    public static ArrayList<Integer> makeSums(int n,int start,ArrayList<Integer> all,boolean add,int sum){
+        if (n!=0){
+        if (start==n){
+          all.add(sum);
+          makeSums(n-1,0,all,true,0);
+        }
+        if (add){
+          makeSums(n,start+1,all,true,sum+start);
+          makeSums(n,start+1,all,false,sum+start);
+        }
+        else{
+          makeSums(n,start+1,all,true,sum);
+          makeSums(n,start+1,all,false,sum);
+        }
+      }
+      all.add(sum);
+      return all;
     }
 
+    public static void main(String[] args){
+
+    }
 }
