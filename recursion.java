@@ -29,15 +29,14 @@ public class recursion{
       if (n==0){
         return holder;
       }
-      System.out.println(""+n+","+previous+","+holder);
       return fibonacci(n-1,holder,previous+holder);
     }
     /*As Per classwork*/
     //public static ArrayList<Integer> makeAllSums(){
     //}
     public static void main(String[] args){
-      System.out.println(fib(5));
-      System.out.println(fib(6));
+      System.out.println(fib(50));
+      System.out.println(fib(60));
     }
 
 }
