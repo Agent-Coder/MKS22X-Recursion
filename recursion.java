@@ -23,13 +23,13 @@ public class recursion{
      *precondition: n is non-negative
      */
     public static int fib(int n){
-
+      fibonacci(n,1,1,0);
     }
     public static int fibonacci(int n, int p1,int p2,int holder){
       if (n==0){
         return holder;
       }
-      return fibonacci(n-1,p2,holder,p1+p2)    
+      return fibonacci(n-1,p2,holder,p1+p2)
     }
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(){
