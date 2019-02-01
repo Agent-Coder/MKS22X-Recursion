@@ -16,7 +16,7 @@ public class recursion{
       if(Math.abs(Math.pow(guess,2)-n)/(n)*100<tolerance){
         return guess;
       }
-      return squarert(n,(n/guess + guess)/2);
+      return squarert(n,(n/guess + guess)/2,tolerance);
     }
     /*Recursively find the n'th fibbonaci number in linear time
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
@@ -29,10 +29,14 @@ public class recursion{
       if (n==0){
         return holder;
       }
-      return fibonacci(n-1,p2,holder,p1+p2)
+      return fibonacci(n-1,p2,holder,p1+p2);
     }
     /*As Per classwork*/
-    public static ArrayList<Integer> makeAllSums(){
+    //public static ArrayList<Integer> makeAllSums(){
+    //}
+    public static void main(String[] args){
+      System.out.println(fib(5));
+      System.out.println(fib(6));
     }
 
 }
