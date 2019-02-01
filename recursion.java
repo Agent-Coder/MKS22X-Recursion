@@ -25,7 +25,12 @@ public class recursion{
     public static int fib(int n){
 
     }
-
+    public static int fibonacci(int n, int p1,int p2,int holder){
+      if (n==0){
+        return holder;
+      }
+      return fibonacci(n-1,p2,holder,p1+p2)    
+    }
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(){
     }
