@@ -7,7 +7,7 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
-      squarert(n,0,tolerance);
+      return squarert(n,0,tolerance);
     }
     public static double squarert(double n,double guess,double tolerance){
       if (n==0){
@@ -23,7 +23,7 @@ public class recursion{
      *precondition: n is non-negative
      */
     public static int fib(int n){
-      fibonacci(n,1,1,0);
+      return fibonacci(n,1,1,0);
     }
     public static int fibonacci(int n, int p1,int p2,int holder){
       if (n==0){
