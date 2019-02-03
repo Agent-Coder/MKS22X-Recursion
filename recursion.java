@@ -71,7 +71,7 @@ public class recursion{
         }
       }
     }
-    public static void main(String[] args){
-      output(makeAllSums(3));
-    }
+    /*public static void main(String[] args){
+      output(makeAllSums(10));
+    }*/
 }
