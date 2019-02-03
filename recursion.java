@@ -34,29 +34,33 @@ public class recursion{
       return fibonacci(n-1,holder,previous+holder);
     }
     /*As Per classwork*/
-    public static ArrayList<Integer> makeAllSums(int n){
+    //public static ArrayList<Integer> makeAllSums(int n){
 
-    }
-    public static ArrayList<Integer> makeSums(int n,int start,ArrayList<Integer> all,boolean add,int sum){
-        if (n!=0){
-        if (start==n){
-          all.add(sum);
-          makeSums(n-1,0,all,true,0);
-        }
-        if (add){
-          makeSums(n,start+1,all,true,sum+start);
-          makeSums(n,start+1,all,false,sum+start);
-        }
-        else{
-          makeSums(n,start+1,all,true,sum);
-          makeSums(n,start+1,all,false,sum);
-        }
+    //}
+    public static ArrayList<Integer> makeSums(int n,int fakeN,int start,int end,ArrayList<Integer> all){
+      if (fakeN>n){
+        return all;
       }
-      all.add(sum);
-      return all;
+      if (end==0){
+        all.add(0);
+        return makeSums(n,fakeN+1,start,all.size()-1,all);
+      }
+      all.add(fakeN+all.get(start));
+      if(start!=end){
+        return makeSums(n,fakeN,start+1,end,all);
+      }
+        return makeSums(n,fakeN+1,0,all.size()-1,all);
     }
-
+    public static void output(ArrayList<Integer> all){
+      System.out.print("[");
+      for (int i=0;i<all.size();i++){
+        System.out.print(all.get(i)+",");
+      }
+      System.out.print("]");
+    }
     public static void main(String[] args){
-
+      ArrayList<Integer> x=new ArrayList<Integer>();
+      makeSums(6,0,0,0,x);
+      output(x);
     }
 }
