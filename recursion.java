@@ -38,24 +38,27 @@ public class recursion{
 
     //}
     public static ArrayList<Integer> makeSums(int n,int fakeN,int start,int end,ArrayList<Integer> all){
-      if (fakeN>n){
+      if (fakeN==n&&start==end){
         return all;
       }
       if (end==0){
-        all.add(0);
+        all.add(fakeN);
         output(all);
         System.out.println("add zero"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
-        return makeSums(n,fakeN+1,start,all.size(),all);
+        all.add(fakeN+1);
+        return makeSums(n,fakeN+1,0,1,all);
       }
       all.add(fakeN+all.get(start));
+      System.out.println(""+fakeN+"+"+all.get(start));
       if(start!=end){
         output(all);
         System.out.println("not equal"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
         return makeSums(n,fakeN,start+1,end,all);
       }
+        all.add(fakeN+1);
         output(all);
         System.out.println("equal"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
-        return makeSums(n,fakeN+1,1,all.size()-1,all);
+        return makeSums(n,fakeN+1,1,all.size()-2,all);
     }
     /*public static void noDuplicate(ArrayList<Integer> all){
       for (int i=0;i<all.size();i++){
@@ -74,6 +77,6 @@ public class recursion{
     }
     public static void main(String[] args){
       ArrayList<Integer> x=new ArrayList<Integer>();
-      makeSums(6,0,0,0,x);
+      makeSums(2,1,0,0,x);
     }
 }
