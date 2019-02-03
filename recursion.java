@@ -43,14 +43,28 @@ public class recursion{
       }
       if (end==0){
         all.add(0);
-        return makeSums(n,fakeN+1,start,all.size()-1,all);
+        output(all);
+        System.out.println("add zero"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
+        return makeSums(n,fakeN+1,start,all.size(),all);
       }
       all.add(fakeN+all.get(start));
       if(start!=end){
+        output(all);
+        System.out.println("not equal"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
         return makeSums(n,fakeN,start+1,end,all);
       }
-        return makeSums(n,fakeN+1,0,all.size()-1,all);
+        output(all);
+        System.out.println("equal"+"  n:"+n+"   fakeN:"+fakeN+"   start:"+start+"  end:"+end);
+        return makeSums(n,fakeN+1,1,all.size()-1,all);
     }
+    /*public static void noDuplicate(ArrayList<Integer> all){
+      for (int i=0;i<all.size();i++){
+        for (int j=0;j<all.size();j++){
+          if(all.get(i)==all.get(j)&&i!=j){
+            all.remove(j);
+          }
+      }
+    }*/
     public static void output(ArrayList<Integer> all){
       System.out.print("[");
       for (int i=0;i<all.size();i++){
@@ -61,6 +75,5 @@ public class recursion{
     public static void main(String[] args){
       ArrayList<Integer> x=new ArrayList<Integer>();
       makeSums(6,0,0,0,x);
-      output(x);
     }
 }
