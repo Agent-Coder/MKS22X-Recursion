@@ -44,15 +44,21 @@ public class recursion{
     public static boolean makeSums(int n,int start,ArrayList<Integer> all,int sum){
         if (start==1){
           all.add(0);
+          //always add the 0 first
         }
         if (start>n){
           return true;
+          //when the looper is greater than the input, put true
         }
         return makeSums(n,start+1,adding(all,sum+start),sum+start)&&makeSums(n,start+1,all,sum);
+        //this will always return true and both cases of adding and no adding have to be true(meaning reach end)
+        //first call adds everytime something new is inputed
+        //second one does the not chosen one but does not have to add because first call added already
     }
-    
+
     public static ArrayList<Integer> adding(ArrayList<Integer> ary,int x){
       ary.add(x);
       return ary;
+      //add the new element and then return the updated array
     }
 }
