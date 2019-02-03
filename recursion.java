@@ -20,6 +20,7 @@ public class recursion{
       }
       return squarert(n,(n/guess + guess)/2,tolerance);
     }
+
     /*Recursively find the n'th fibbonaci number in linear time
      *fib(0) = 1; fib(1) = 1; fib(5) = 5
      *precondition: n is non-negative
@@ -33,45 +34,25 @@ public class recursion{
       }
       return fibonacci(n-1,holder,previous+holder);
     }
+
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(int n){
       ArrayList<Integer> x=new ArrayList<Integer>();
-      makeSums(n,1,0,0,x);
+      makeSums(n,1,x,0);
       return x;
     }
-    public static ArrayList<Integer> makeSums(int n,int fakeN,int start,int end,ArrayList<Integer> all){
-      if (fakeN>=n&&start==end){
-        all.add(0,0);
-        if (n==1){
-          all.add(0,1);
+    public static boolean makeSums(int n,int start,ArrayList<Integer> all,int sum){
+        if (start==1){
+          all.add(0);
         }
-        return all;
-      }
-      if (end==0){
-        all.add(fakeN);
-        all.add(fakeN+1);
-        return makeSums(n,fakeN+1,0,1,all);
-      }
-      if(start<end){
-        all.add(fakeN+all.get(start));
-        return makeSums(n,fakeN,start+1,end,all);
-      }
-        all.add(fakeN+1);
-        return makeSums(n,fakeN+1,0,all.size()-1,all);
+        if (start>n){
+          return true;
+        }
+        return makeSums(n,start+1,adding(all,sum+start),sum+start)&&makeSums(n,start+1,all,sum);
     }
-
-    public static void output(ArrayList<Integer> all){
-      System.out.print("[");
-      for (int i=0;i<all.size();i++){
-        if(i==all.size()-1){
-          System.out.print(all.get(i)+"]");
-        }
-        else{
-          System.out.print(all.get(i)+",");
-        }
-      }
+    
+    public static ArrayList<Integer> adding(ArrayList<Integer> ary,int x){
+      ary.add(x);
+      return ary;
     }
-    /*public static void main(String[] args){
-      output(makeAllSums(10));
-    }*/
 }
