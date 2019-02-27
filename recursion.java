@@ -9,7 +9,7 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
-      return squarert(n,0,tolerance);
+      return squarert(n,1,tolerance);
     }
     public static double squarert(double n,double guess,double tolerance){
       if (n==0){
